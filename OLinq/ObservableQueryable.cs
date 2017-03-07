@@ -38,7 +38,7 @@ namespace OLinq
         /// <returns></returns>
         public static ObservableQuery<T> WithNullSafe<T>(this ObservableQuery<T> self, bool enable)
         {
-            Contract.Requires<ArgumentNullException>(self != null);
+            if (self == null) throw new ArgumentNullException();
 
             return (ObservableQuery<T>)self.Provider.CreateQuery<T>(
                 Expression.Call(

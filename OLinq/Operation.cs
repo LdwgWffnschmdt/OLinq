@@ -15,10 +15,10 @@ namespace OLinq
 
         public static bool IsMethod(MethodInfo method, string name, int typeArgs, int parameters)
         {
-            Contract.Requires<ArgumentNullException>(method != null);
-            Contract.Requires<ArgumentNullException>(name != null);
-            Contract.Requires<ArgumentNullException>(typeArgs >= 0);
-            Contract.Requires<ArgumentNullException>(parameters >= 0);
+            if (method == null) throw new ArgumentNullException();
+            if (name == null) throw new ArgumentNullException();
+            if (!(typeArgs >= 0)) throw new ArgumentNullException();
+            if (!(parameters >= 0)) throw new ArgumentNullException();
 
             return typeof(Queryable).GetMember(name).Concat(typeof(Enumerable).GetMember(name))
                 .OfType<MethodInfo>()

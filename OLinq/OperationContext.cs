@@ -67,8 +67,8 @@ namespace OLinq
         /// <returns></returns>
         public IOperation<T> GetVariable<T>(string name)
         {
-            Contract.Requires<ArgumentNullException>(name != null);
-            Contract.Requires<ArgumentException>(!string.IsNullOrWhiteSpace(name));
+            if (name == null) throw new ArgumentNullException();
+            if (string.IsNullOrWhiteSpace(name)) throw new ArgumentNullException();
 
             IOperation node;
             if (!variables.TryGetValue(name, out node))

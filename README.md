@@ -1,3 +1,4 @@
+OLinq fork to remove need for Code Contracts.
 OLinq is a project to provide a Linq Queryable provider implementation for operating on ObservableCollections or other INotifyCollectionChanged supporting lists. The output of OLinq is an ObservableView which notifies when the results of the query have changed.
 
 ```csharp

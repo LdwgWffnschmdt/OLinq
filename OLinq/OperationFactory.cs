@@ -109,8 +109,8 @@ namespace OLinq
         /// <returns></returns>
         static IOperation FromConstantExpression(OperationContext context, ConstantExpression expression)
         {
-            Contract.Requires<ArgumentNullException>(context != null);
-            Contract.Requires<ArgumentNullException>(expression != null);
+            if (context == null) throw new ArgumentNullException();
+            if (expression == null) throw new ArgumentNullException();
 
             var query = expression.Value as ObservableQuery;
             if (query != null)
